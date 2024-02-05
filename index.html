@@ -154,15 +154,21 @@ color: darkgreen;
 
 	const resObj = await res.json();
 	// message.innerText =  resObj.message;
-if(resObj.statusCode = 200){
+if(resObj.statusCode == 200){
 	message.innerText = "Account created successfully!";
 	message.style.color = "green"
-};
-if(resObj.statusCode = 400){
-	message.innerText = "Error! check if your details are correctly filled";
+}
+ else if(resObj.message == "email already exist!"){
+	message.innerText = "Email already exist!";
 	 message.style.color = "red";
 
 }
+else if(resObj.message == "Internal Server Error!"){
+	message.innerText = "Input your details!";
+	 message.style.color = "red";
+
+}
+
 
 	
 	console.log(resObj);
